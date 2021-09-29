@@ -86,6 +86,17 @@
             <artifactId>controlsfx</artifactId>
             <version>11.1.0</version>
         </dependency>
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-swing</artifactId>
+            <version>17.0.0.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.github.martinfrank</groupId>
+            <artifactId>eob-edit</artifactId>
+            <version>0.1.0</version>
+        </dependency>
 
     </dependencies>
 

@@ -1,24 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
 <VBox fx:id="vbox" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.github.martinfrank.eobeditgui.control.Controller">
-   <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE">
-     <tabs>
-       <Tab text="Page A">
-         <content>
-           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-         </content>
-            <graphic>
-               <Button mnemonicParsing="false" text="Button" />
-            </graphic>
-       </Tab>
-       <Tab text="Page B">
-         <content>
-           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-         </content>
-       </Tab>
-     </tabs>
-   </TabPane>
+    <MenuBar>
+        <menus>
+            <Menu mnemonicParsing="false" text="File">
+                <items>
+                    <MenuItem mnemonicParsing="false" onAction="#load" text="Load" />
+                    <MenuItem mnemonicParsing="false" onAction="#save" text="Save" />
+                    <MenuItem mnemonicParsing="false" onAction="#exit" text="Close" />
+                </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Help">
+                <items>
+                    <MenuItem mnemonicParsing="false" onAction="#about" text="About" />
+                </items>
+            </Menu>
+        </menus>
+    </MenuBar>
+    <!-- see https://edencoding.com/javafx-layouts/ -->
+    <HBox>
+        <AnchorPane fx:id="panePageA" prefHeight="334.0" prefWidth="284.0" style="-fx-border-radius: 0;">
+            <children>
+                <!--                <Button prefHeight="34.0" prefWidth="32.0" AnchorPane.bottomAnchor="2.0" AnchorPane.rightAnchor="2.0" />-->
+                <Button prefHeight="30.0" prefWidth="44.0" AnchorPane.rightAnchor="4.0" AnchorPane.topAnchor="71.0" />
+                <Button prefHeight="30.0" prefWidth="44.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="71.0" />
+                <TextField fx:id="nameTextA" alignment="TOP_LEFT" minHeight="-Infinity" minWidth="-Infinity" prefHeight="14.0" prefWidth="100.0" promptText="test" AnchorPane.leftAnchor="80.0" AnchorPane.topAnchor="10.0" />
+                <ImageView fx:id="portraitA" fitHeight="64.0" fitWidth="62.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="8.0" AnchorPane.topAnchor="6.0" />
+            </children>
+        </AnchorPane>
+        <AnchorPane fx:id="panePageB" prefHeight="334.0" prefWidth="284.0" style="-fx-border-radius: 0;">
+            <children>
+                <!--                <Button prefHeight="34.0" prefWidth="32.0" AnchorPane.bottomAnchor="2.0" AnchorPane.rightAnchor="2.0" />-->
+                <Button prefHeight="30.0" prefWidth="44.0" AnchorPane.rightAnchor="4.0" AnchorPane.topAnchor="71.0" />
+                <Button prefHeight="30.0" prefWidth="44.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="71.0" />
+                <TextField fx:id="nameTextB" alignment="TOP_LEFT" minHeight="-Infinity" minWidth="-Infinity" prefHeight="14.0" prefWidth="100.0" promptText="test" AnchorPane.leftAnchor="80.0" AnchorPane.topAnchor="10.0" />
+                <ImageView fx:id="portraitB" fitHeight="64.0" fitWidth="62.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="8.0" AnchorPane.topAnchor="6.0" />
+            </children>
+        </AnchorPane>
+        <!--        <ImageView fx:id="paneImageA" fitHeight="334.0" fitWidth="284.0" pickOnBounds="true" preserveRatio="true"/>-->
+        <!--        <ImageView fx:id="paneImageB" fitHeight="334.0" fitWidth="284.0" pickOnBounds="true" preserveRatio="true"/>-->
+
+        <!--        <Pane prefHeight="334.0" prefWidth="284.0">-->
+        <!--            <children>-->
+        <!--                <Button prefHeight="200.0" prefWidth="200.0" />-->
+        <!--            </children>-->
+        <!--        </Pane>-->
+    </HBox>
+    <fx:include source="info_panel.fxml"/>
 </VBox>
