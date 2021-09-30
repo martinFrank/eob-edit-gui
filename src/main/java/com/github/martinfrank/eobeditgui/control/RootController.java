@@ -60,8 +60,8 @@ public class RootController implements PlayerDataChangeEventListener {
         LOGGER.debug("changes on player:{}, changed data:{}",playerDataIndex, type);
         switch (type){
             case LOAD_DATA: {
-                pageAController.updateModel(model);
-                pageBController.updateModel(model);
+                pageAController.updateModel(model, 0);
+                pageBController.updateModel(model, 0);
             }
         }
     }
@@ -81,5 +81,13 @@ public class RootController implements PlayerDataChangeEventListener {
 
     public void setPageBController(PageBController pageBController) {
         this.pageBController = pageBController;
+    }
+
+    public void nextPlayer() {
+        LOGGER.debug("nextPlayer");
+    }
+
+    public void prevPlayer() {
+        LOGGER.debug("prevPlayer");
     }
 }

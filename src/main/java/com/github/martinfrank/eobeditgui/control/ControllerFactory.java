@@ -27,12 +27,12 @@ public class ControllerFactory implements Callback<Class<?>, Object> {
             return infoController;
         }
         if (type == PageAController.class) {
-            PageAController pageAController = new PageAController();
+            PageAController pageAController = new PageAController(rootController);
             rootController.setPageAController(pageAController);
             return pageAController;
         }
         if (type == PageBController.class) {
-            PageBController pageBController = new PageBController();
+            PageBController pageBController = new PageBController(rootController);
             rootController.setPageBController(pageBController);
             return pageBController;
         }else {

@@ -1,20 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<?import javafx.scene.image.ImageView?>
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.github.martinfrank.eobeditgui.control.PageBController"
-            prefHeight="334.0" prefWidth="284.0" fx:id="panePageB">
+<AnchorPane fx:id="panePageB" prefHeight="334.0" prefWidth="284.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.github.martinfrank.eobeditgui.control.PageBController">
     <children>
         <!--                <Button prefHeight="34.0" prefWidth="32.0" AnchorPane.bottomAnchor="2.0" AnchorPane.rightAnchor="2.0" />-->
-        <Button prefHeight="30.0" prefWidth="44.0" AnchorPane.rightAnchor="4.0" AnchorPane.topAnchor="71.0" />
-        <Button prefHeight="30.0" prefWidth="44.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="71.0" />
+        <Button onAction="#nextPlayer" opacity="0.0" prefHeight="30.0" prefWidth="44.0" AnchorPane.rightAnchor="4.0" AnchorPane.topAnchor="71.0" />
+        <Button onAction="#prevPlayer" opacity="0.0" prefHeight="30.0" prefWidth="44.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="71.0" />
         <TextField fx:id="nameTextB" alignment="TOP_LEFT" minHeight="-Infinity" minWidth="-Infinity" prefHeight="14.0" prefWidth="100.0" promptText="test" AnchorPane.leftAnchor="80.0" AnchorPane.topAnchor="10.0" />
         <ImageView fx:id="portraitB" fitHeight="64.0" fitWidth="62.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="8.0" AnchorPane.topAnchor="6.0" />
     </children>
