@@ -1,7 +1,7 @@
 package com.github.martinfrank.eobeditgui;
 
 import com.github.martinfrank.eobedit.data.SavegameFile;
-import com.github.martinfrank.eobeditgui.control.Controller;
+import com.github.martinfrank.eobeditgui.control.RootController;
 import com.github.martinfrank.eobeditgui.control.ControllerFactory;
 import javafx.application.Application;
 import javafx.application.Platform;
@@ -22,7 +22,7 @@ public class App extends Application {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(App.class);
     private Pane pane;
-    private Controller presenter;
+    private RootController presenter;
     private SavegameFile model;
 
     public static void main(String[] args) {
@@ -32,7 +32,7 @@ public class App extends Application {
     // Snippet: https://www.tcs.ifi.lmu.de/lehre/ws-2017-18/sep/material/mvc.pdf
     // Model model = newModel();
     // View view = newView(model, stage);
-    // Controller controller = newController(model, view);
+    // RootController controller = newController(model, view);
 
     //model-view-presenter
     //siehe auch https://support.touchgfx.com/docs/development/ui-development/software-architecture/model-view-presenter-design-pattern

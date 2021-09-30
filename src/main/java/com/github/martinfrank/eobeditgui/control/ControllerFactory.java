@@ -5,7 +5,7 @@ import javafx.util.Callback;
 
 public class ControllerFactory implements Callback<Class<?>, Object> {
 
-    private Controller rootController;
+    private RootController rootController;
     private final SavegameFile model;
 
 //    public ControllerFactory() {
@@ -17,10 +17,25 @@ public class ControllerFactory implements Callback<Class<?>, Object> {
 
     @Override
     public Object call(Class<?> type) {
-        if (type == Controller.class) {
-            rootController = new Controller(model);
+        if (type == RootController.class) {
+            rootController = new RootController(model);
             return rootController;
-        } else {
+        }
+        if (type == InfoController.class) {
+            InfoController infoController = new InfoController();
+            rootController.setInfoController(infoController);
+            return infoController;
+        }
+        if (type == PageAController.class) {
+            PageAController pageAController = new PageAController();
+            rootController.setPageAController(pageAController);
+            return pageAController;
+        }
+        if (type == PageBController.class) {
+            PageBController pageBController = new PageBController();
+            rootController.setPageBController(pageBController);
+            return pageBController;
+        }else {
             // default behavior for controllerFactory:
             try {
                 return type.getDeclaredConstructor().newInstance();
@@ -31,9 +46,8 @@ public class ControllerFactory implements Callback<Class<?>, Object> {
         }
     }
 
-    public Controller getRootController() {
+    public RootController getRootController() {
         return rootController;
     }
-
 
 }
