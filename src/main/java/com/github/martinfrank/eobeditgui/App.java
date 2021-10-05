@@ -3,6 +3,7 @@ package com.github.martinfrank.eobeditgui;
 import com.github.martinfrank.eobedit.data.SavegameFile;
 import com.github.martinfrank.eobeditgui.control.RootController;
 import com.github.martinfrank.eobeditgui.control.ControllerFactory;
+import com.github.martinfrank.eobeditgui.model.SavegameFileModel;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
@@ -23,7 +24,7 @@ public class App extends Application {
     private static final Logger LOGGER = LoggerFactory.getLogger(App.class);
     private Pane pane;
     private RootController presenter;
-    private SavegameFile model;
+    private SavegameFileModel model;
 
     public static void main(String[] args) {
         launch(args);
@@ -43,7 +44,7 @@ public class App extends Application {
 
     @Override
     public void init() {
-        model = new SavegameFile();
+        model = new SavegameFileModel();
         ControllerFactory controllerFactory = new ControllerFactory(model);
         try {
             File f = new File("src/main/resources/gui/root.fxml");

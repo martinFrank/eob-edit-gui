@@ -2,6 +2,7 @@ package com.github.martinfrank.eobeditgui.control;
 
 import com.github.martinfrank.eobedit.data.SavegameFile;
 import com.github.martinfrank.eobedit.image.ImageProvider;
+import com.github.martinfrank.eobeditgui.model.SavegameFileModel;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -34,14 +35,16 @@ public class PageBController {
         this.rootController = rootController;
     }
 
-    public void init() {
-        nameTextB.setFont(FontProvider.getDefaultFont());
-        nameTextB.setPadding(new Insets(0,0,0,0));
-    }
+    public void init(SavegameFileModel model) {
+//        nameTextB.setFont(FontProvider.getDefaultFont());
+//        nameTextB.setPadding(new Insets(0,0,0,0));
 
-    public void updateModel(SavegameFile model, int index) {
-        portraitB.setImage(SwingFXUtils.toFXImage(imageProvider.getPortrait(model.getPlayer(0).getPortrait()), null));
-        nameTextB.setText(model.getPlayer(0).getName() );
+        nameTextB.setFont(FontProvider.getDefaultFont());
+        nameTextB.setPadding(new Insets(0, 0, 0, 0));
+        nameTextB.textProperty().bindBidirectional(model.nameProperty());
+
+        portraitB.imageProperty().bind(model.portraitProperty());
+
         panePageB.setBackground(new Background(
                 new BackgroundImage(SwingFXUtils.toFXImage(imageProvider.getGuiPageB(), null),
                         null,
@@ -49,6 +52,17 @@ public class PageBController {
                         null,
                         null)));
     }
+
+//    public void updateModel(SavegameFile model, int index) {
+//        portraitB.setImage(SwingFXUtils.toFXImage(imageProvider.getPortrait(model.getPlayer(0).getPortrait()), null));
+//        nameTextB.setText(model.getPlayer(0).getName() );
+//        panePageB.setBackground(new Background(
+//                new BackgroundImage(SwingFXUtils.toFXImage(imageProvider.getGuiPageB(), null),
+//                        null,
+//                        null,
+//                        null,
+//                        null)));
+//    }
 
     public void nextPlayer(ActionEvent actionEvent) {
         rootController.nextPlayer();

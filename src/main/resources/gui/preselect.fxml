@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane prefHeight="334.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.github.martinfrank.eobeditgui.control.PreselectController">
+
+    <VBox spacing="5">
+        <children>
+
+            <HBox alignment="CENTER_LEFT" spacing="5">
+                <children>
+                    <Label prefWidth="50.0" text="Portraits"/>
+                    <ComboBox fx:id="portraitSelect" prefWidth="78.0"/>
+                    <Button mnemonicParsing="false" onAction="#setPortrait" prefWidth="50.0" text="Set"/>
+                </children>
+            </HBox>
+
+            <ScrollPane prefHeight="200.0" prefWidth="200.0">
+                <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0">
+                        <children>
+                            <GridPane fx:id="itemGrid">
+                            </GridPane>
+                        </children>
+                    </AnchorPane>
+                </content>
+            </ScrollPane>
+        </children>
+    </VBox>
+</Pane>

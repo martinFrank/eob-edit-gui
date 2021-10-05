@@ -1,17 +1,18 @@
 package com.github.martinfrank.eobeditgui.control;
 
 import com.github.martinfrank.eobedit.data.SavegameFile;
+import com.github.martinfrank.eobeditgui.model.SavegameFileModel;
 import javafx.util.Callback;
 
 public class ControllerFactory implements Callback<Class<?>, Object> {
 
     private RootController rootController;
-    private final SavegameFile model;
+    private final SavegameFileModel model;
 
 //    public ControllerFactory() {
 //    }
 
-    public ControllerFactory(SavegameFile model) {
+    public ControllerFactory(SavegameFileModel model) {
         this.model = model;
     }
 
@@ -35,6 +36,11 @@ public class ControllerFactory implements Callback<Class<?>, Object> {
             PageBController pageBController = new PageBController(rootController);
             rootController.setPageBController(pageBController);
             return pageBController;
+        }
+        if (type == PreselectController.class) {
+            PreselectController preselectController = new PreselectController(rootController);
+            rootController.setPreselectController(preselectController);
+            return preselectController;
         }else {
             // default behavior for controllerFactory:
             try {

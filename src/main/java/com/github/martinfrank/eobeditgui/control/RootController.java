@@ -1,9 +1,16 @@
 package com.github.martinfrank.eobeditgui.control;
 
+import com.github.martinfrank.eobedit.data.Item;
+import com.github.martinfrank.eobedit.data.Items;
+import com.github.martinfrank.eobedit.data.Portrait;
 import com.github.martinfrank.eobedit.data.SavegameFile;
 import com.github.martinfrank.eobedit.event.ChangeEventType;
 import com.github.martinfrank.eobedit.event.PlayerDataChangeEventListener;
+import com.github.martinfrank.eobeditgui.model.SavegameFileModel;
+import javafx.beans.property.Property;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
+import javafx.scene.image.Image;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
@@ -18,15 +25,16 @@ public class RootController implements PlayerDataChangeEventListener {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(RootController.class);
 
-    private final SavegameFile model;
+    private final SavegameFileModel model;
     private final FileChooser fileChooser = new FileChooser();
 
     private InfoController infoController;
     private PageAController pageAController;
     private PageBController pageBController;
+    private PreselectController preselectController;
     private Stage stage;
 
-    RootController(SavegameFile model) {
+    RootController(SavegameFileModel model) {
         this.model = model;
         model.registerChangeListener(this);
     }
@@ -60,15 +68,18 @@ public class RootController implements PlayerDataChangeEventListener {
         LOGGER.debug("changes on player:{}, changed data:{}",playerDataIndex, type);
         switch (type){
             case LOAD_DATA: {
-                pageAController.updateModel(model, 0);
-                pageBController.updateModel(model, 0);
+
+//                pageAController.updateModel(model, 0);
+//                pageBController.updateModel(model, 0);
+                LOGGER.debug("here would come an update!!");
             }
         }
     }
 
     public void init() {
-        pageAController.init();
-        pageBController.init();
+        pageAController.init(model);
+        pageBController.init(model);
+        preselectController.init(model);
     }
 
     public void setInfoController(InfoController infoController) {
@@ -83,11 +94,36 @@ public class RootController implements PlayerDataChangeEventListener {
         this.pageBController = pageBController;
     }
 
+    public void setPreselectController(PreselectController preselectController) {
+        this.preselectController = preselectController;
+    }
+
     public void nextPlayer() {
         LOGGER.debug("nextPlayer");
     }
 
     public void prevPlayer() {
         LOGGER.debug("prevPlayer");
+    }
+
+    public void setPortrait(Portrait portrait) {
+        model.setPortrait(portrait);
+    }
+
+    public void updateItemInfo(Item item) {
+        infoController.updateItemInfo(item);
+    }
+
+    public void setInventoryItem(Item item, int index) {
+        model.setInventoryItem(item,index);
+        LOGGER.debug("setting item slot {} with item: {}",index,item.description);
+    }
+
+    public void updateItemInventoy(int index) {
+        infoController.updateItemInfo(Items.ADAMATITE_DART_J);
+    }
+
+    public Property<Image> getInventoryImageProperty(int index) {
+        return model.inventoryImageProperty(index);
     }
 }

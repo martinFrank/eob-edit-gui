@@ -4,20 +4,16 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane fx:id="panePageA" prefHeight="334.0" prefWidth="284.0" style="-fx-background-color: #6569B6;"
-            xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.github.martinfrank.eobeditgui.control.PageAController">
+<!--style="-fx-background-color: #6569B6;"-->
+
+<AnchorPane fx:id="panePageA" prefHeight="334.0" prefWidth="284.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.github.martinfrank.eobeditgui.control.PageAController">
     <children>
-        <Button onAction="#nextPlayer" opacity="0.0" prefHeight="30.0" prefWidth="44.0" AnchorPane.rightAnchor="4.0"
-                AnchorPane.topAnchor="71.0"/>
-        <Button onAction="#prevPlayer" opacity="0.0" prefHeight="30.0" prefWidth="44.0" AnchorPane.rightAnchor="50.0"
-                AnchorPane.topAnchor="71.0"/>
-        <TextField fx:id="nameTextA" alignment="TOP_LEFT" minHeight="-Infinity" minWidth="-Infinity" prefHeight="16.0"
-                   prefWidth="100.0"
-                   style="-fx-background-color: #6569B6; -fx-background-insets: 0; -fx-text-inner-color: white;"
-                   text=" " AnchorPane.leftAnchor="80.0" AnchorPane.topAnchor="9.0"/>
-        <ImageView fx:id="portraitA" fitHeight="64.0" fitWidth="62.0" pickOnBounds="true" preserveRatio="true"
-                   AnchorPane.leftAnchor="8.0" AnchorPane.topAnchor="6.0"/>
+        <Button onAction="#nextPlayer" opacity="0.0" prefHeight="30.0" prefWidth="44.0" AnchorPane.rightAnchor="4.0" AnchorPane.topAnchor="71.0" />
+        <Button onAction="#prevPlayer" opacity="0.0" prefHeight="30.0" prefWidth="44.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="71.0" />
+        <TextField fx:id="nameTextA" alignment="TOP_LEFT" minHeight="-Infinity" minWidth="-Infinity" prefHeight="16.0" prefWidth="100.0" style="-fx-background-color: #6569B6; -fx-background-insets: 0; -fx-text-inner-color: white;" text=" " AnchorPane.leftAnchor="80.0" AnchorPane.topAnchor="9.0" />
+        <ImageView fx:id="portraitA" fitHeight="64.0" fitWidth="62.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="8.0" AnchorPane.topAnchor="6.0" />
+        <Slider prefWidth="112.0" AnchorPane.leftAnchor="140.0" AnchorPane.topAnchor="46.0" />
+        <GridPane fx:id="itemGrid" AnchorPane.leftAnchor="4.0" AnchorPane.topAnchor="78.0"/>
     </children>
 
 </AnchorPane>

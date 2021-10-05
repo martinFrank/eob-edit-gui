@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
 <VBox fx:id="vbox" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.github.martinfrank.eobeditgui.control.RootController">
@@ -23,8 +22,9 @@
     </MenuBar>
     <!-- see https://edencoding.com/javafx-layouts/ -->
     <HBox>
-        <fx:include source="page_a.fxml"/>
-        <fx:include source="page_b.fxml"/>
+        <fx:include source="page_a.fxml" />
+        <fx:include source="page_b.fxml" />
+        <fx:include source="preselect.fxml" />
     </HBox>
-    <fx:include source="info_panel.fxml"/>
+    <fx:include source="info_panel.fxml" />
 </VBox>
